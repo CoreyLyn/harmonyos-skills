@@ -81,6 +81,10 @@ harmonyos-skills/
 
 ### 1. 安装
 
+```bash
+npx skills add coreylyn/harmonyos-skills
+```
+
 ### 2. 使用开发技能
 
 ```
