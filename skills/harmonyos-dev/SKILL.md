@@ -1,88 +1,83 @@
 ---
 name: harmonyos-dev
-description: HarmonyOS 应用开发助手，基于 ArkTS 和 ArkUI 框架。使用时需先确认 API 版本（默认 API 20+）和目标设备类型（默认 PC 端）。支持 UI 组件开发、数据管理、网络通信、系统能力集成等场景。适用于从零开始开发、迭代现有项目和架构设计。参考华为官方文档进行开发：版本说明、开发指南、API 参考、最佳实践和 FAQ。
+description: >-
+  HarmonyOS application development assistant based on ArkTS and ArkUI
+  frameworks. Confirm API version (default API 20+) and target device type
+  (default PC) before starting. Supports UI component development, data
+  management, network communication, and system capability integration.
+  Applicable for greenfield development, iterating existing projects, and
+  architecture design. References official Huawei documentation including
+  release notes, development guides, API references, best practices, and FAQ.
 ---
 
-# HarmonyOS 应用开发
+# HarmonyOS Application Development
 
-## 开发前确认
+## Pre-Development Checklist
 
-首次开发或新项目启动时，确认以下信息：
+Confirm before starting a new project or first-time development:
 
-- **API 版本**：默认 API 20+，向下兼容需明确说明
-- **目标设备**：PC 端/手机/平板/穿戴设备/全场景
-- **开发场景**：新建/迭代/架构设计
-- **项目结构**：HAP 包结构、模块划分方式
+- **API version**: Default API 20+; state explicitly if backward compatibility needed
+- **Target device**: PC / Phone / Tablet / Wearable / Multi-device
+- **Scenario**: Greenfield / Iteration / Architecture design
+- **Project structure**: HAP package layout, module organization
 
-## 核心技术栈
+## Core Technology Stack
 
-### ArkTS 语言特性
-- 基于 TypeScript 扩展
-- 状态管理：`@ObservedV2`、`@Trace`、`@Local`、`@Provider`
-- 组件装饰器：`@Component`、`@ComponentV2`、`@Entry`、`@Builder`
-- 性能优化：按需更新、最小化重渲染
+### ArkTS Language
 
-### ArkUI 组件系统
-- 声明式 UI 构建
-- 布局容器：Column/Row/Stack/Flex/Grid
-- 列表渲染：ForEach/LazyForEach
-- 动画系统：属性动画、转场动画、共享元素转场
+- TypeScript-based extension
+- State decorators: `@ObservedV2`, `@Trace`, `@Local`, `@Provider`
+- Component decorators: `@Component`, `@ComponentV2`, `@Entry`, `@Builder`
+- Rendering: on-demand updates, minimal re-renders
 
-### 项目结构模式
-```
-products/default/     # 主产品入口
-commons/utils/        # 通用工具模块
-commons/database/     # 数据库模块
-commons/logic/        # 业务逻辑模块
-features/             # 功能特性模块
-  ├── history/        # 历史工程
-  ├── make/           # 文件制作
-  ├── viewer/         # 文件查看
-  ├── sign/           # 签章
-  └── generate/       # 生成
-```
+### ArkUI Component System
 
-## 常用开发模式
+- Declarative UI construction
+- Layout containers: Column / Row / Stack / Flex / Grid
+- List rendering: ForEach / LazyForEach
+- Animation: property animation, transition, shared element transition
 
-### 状态管理
-- 组件内状态：`@Local`
-- 跨组件传递：`@Provider` + `@Consumer`
-- 深度响应式：`@ObservedV2` + `@Trace`
+## Common Patterns
 
-### 页面导航
-- Router.pushUrl() - 页面跳转
-- Router.replaceUrl() - 替换页面
-- Router.back() - 返回上一页
+### State Management
 
-### 数据持久化
-- Preferences：轻量级键值存储
-- RDB：关系型数据库
-- 分布式数据：跨设备同步
+- Component-local: `@Local`
+- Cross-component: `@Provider` + `@Consumer`
+- Deep reactivity: `@ObservedV2` + `@Trace`
 
-### 网络请求
-- @ohos/axios.http - HTTP 请求
-- WebSocket - 长连接
-- 上传下载：@ohos.request
+### Page Navigation
 
-## 参考 API 文档
+- `Router.pushUrl()` - push page
+- `Router.replaceUrl()` - replace page
+- `Router.back()` - go back
 
-**版本说明**：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-allversion
+### Data Persistence
 
-**开发指南**：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide
+- Preferences: lightweight key-value storage
+- RDB: relational database
+- Distributed data: cross-device sync
 
-**API 参考**：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/development-intro-api
+### Network
 
-**最佳实践**：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-overview
+- `@kit.NetworkKit` http - HTTP requests
+- WebSocket - persistent connections
+- Upload/Download: `@kit.BasicServicesKit` request
 
-**FAQ**：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-scenario
+## Official Documentation
 
-## 深入参考
+- **Release notes**: https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-allversion
+- **Dev guide**: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide
+- **API reference**: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/development-intro-api
+- **Best practices**: https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-overview
+- **FAQ**: https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-multi-device-scenario
 
-按需加载详细文档：
+## References
 
-- **状态管理**：[references/state-management.md](references/state-management.md)
-- **UI 组件**：[references/ui-components.md](references/ui-components.md)
-- **数据存储**：[references/data-persistence.md](references/data-persistence.md)
-- **网络通信**：[references/network.md](references/network.md)
-- **权限管理**：[references/permissions.md](references/permissions.md)
-- **性能优化**：[references/performance.md](references/performance.md)
+Load detailed docs as needed:
+
+- **State management**: [references/state-management.md](references/state-management.md)
+- **UI components**: [references/ui-components.md](references/ui-components.md)
+- **Data persistence**: [references/data-persistence.md](references/data-persistence.md)
+- **Network**: [references/network.md](references/network.md)
+- **Permissions**: [references/permissions.md](references/permissions.md)
+- **Performance**: [references/performance.md](references/performance.md)
