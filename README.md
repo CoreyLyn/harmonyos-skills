@@ -25,7 +25,7 @@ HarmonyOS 应用开发助手，基于 ArkTS 和 ArkUI 框架。
 
 **使用方式：**
 ```
-/skill harmonyos-dev
+/harmonyos-dev
 ```
 
 **技术栈：**
@@ -48,7 +48,7 @@ HarmonyOS 代码审查技能，基于华为官方开发指南和安全最佳实�
 
 **使用方式：**
 ```
-/skill harmonyos-review
+/harmonyos-review
 ```
 
 **输出：** 生成 Markdown 格式的审查报告，包含优先级修复建议。
@@ -88,7 +88,7 @@ npx skills add coreylyn/harmonyos-skills
 ### 2. 使用开发技能
 
 ```
-/skill harmonyos-dev
+/harmonyos-dev
 ```
 
 确认以下信息：
@@ -99,7 +99,7 @@ npx skills add coreylyn/harmonyos-skills
 ### 3. 使用审查技能
 
 ```
-/skill harmonyos-review
+/harmonyos-review
 ```
 
 审查流程：
