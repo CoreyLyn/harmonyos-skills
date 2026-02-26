@@ -1,8 +1,19 @@
 # 网络通信参考
 
+> **来源要求**: 本文档内容需对照官方文档验证。使用时请注明出处。
+>
+> 官方文档：
+> - 网络管理指南: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-management
+> - HTTP请求: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-http-request
+> - WebSocket: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-websocket
+> - Socket: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-socket
+
 ## HTTP 请求
 
+来源: [HTTP网络请求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-http-request)
+
 ### 基础请求
+
 ```typescript
 import { http } from '@kit.NetworkKit';
 
@@ -23,6 +34,9 @@ if (response.responseType === http.ResponseType.STRING) {
 ```
 
 ### POST 请求
+
+来源: [HTTP POST请求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-http-request#发起post请求)
+
 ```typescript
 let response = await request.request('https://api.example.com/data', {
   method: http.RequestMethod.POST,
@@ -37,6 +51,9 @@ let response = await request.request('https://api.example.com/data', {
 ```
 
 ### 文件上传
+
+来源: [上传下载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-upload-download)
+
 ```typescript
 import { request } from '@kit.BasicServicesKit';
 
@@ -60,6 +77,7 @@ uploadTask.on('progress', (uploadedSize, totalSize) => {
 ```
 
 ### 文件下载
+
 ```typescript
 let downloadTask = await request.downloadFile(getContext(), {
   url: 'https://example.com/file.zip',
@@ -73,7 +91,10 @@ downloadTask.on('progress', (downloadedSize, totalSize) => {
 
 ## WebSocket
 
+来源: [WebSocket连接](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-websocket)
+
 ### 建立连接
+
 ```typescript
 import { webSocket } from '@kit.NetworkKit';
 
@@ -87,6 +108,7 @@ ws.connect('ws://example.com/socket', (err, value) => {
 ```
 
 ### 发送消息
+
 ```typescript
 ws.send('Hello Server', (err) => {
   if (err) {
@@ -96,6 +118,7 @@ ws.send('Hello Server', (err) => {
 ```
 
 ### 接收消息
+
 ```typescript
 ws.on('message', (err, data) => {
   if (!err) {
@@ -105,6 +128,7 @@ ws.on('message', (err, data) => {
 ```
 
 ### 关闭连接
+
 ```typescript
 ws.close((err) => {
   if (!err) {
@@ -115,7 +139,12 @@ ws.close((err) => {
 
 ## Socket 连接
 
+来源: [Socket连接](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-socket)
+
 ### TCP Socket
+
+来源: [TCP Socket](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-socket#tcp-socket开发)
+
 ```typescript
 import { socket } from '@kit.NetworkKit';
 
@@ -137,6 +166,9 @@ await tcp.send({ data: 'Hello' });
 ```
 
 ### UDP Socket
+
+来源: [UDP Socket](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-socket#udp-socket开发)
+
 ```typescript
 let udp = socket.constructUDPSocketInstance();
 
@@ -154,7 +186,10 @@ await udp.send({
 
 ## 网络状态
 
+来源: [网络连接管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-net-connection)
+
 ### 监听网络变化
+
 ```typescript
 import { connection } from '@kit.NetworkKit';
 
@@ -172,6 +207,7 @@ netCon.unregister();
 ```
 
 ### 获取网络类型
+
 ```typescript
 let netType = connection.getConnectionType();
 console.log('Network type:', netType);
